@@ -1,0 +1,74 @@
+﻿@model IEnumerable<LINQProject.Models.Person>
+
+@{
+    ViewData["Title"] = "People List";
+}
+
+<h1>People List</h1>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-danger"><i class="fas fa-plus"></i> &nbsp;  New Person</a>
+</p>
+<hr />
+<table width="100%" class="font-italic font-weight-bold text-center" border="1" style="border-color: chocolate; background-color:burlywood">
+    <thead>
+        <tr style="color:red">
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="width:200px">
+                @Html.DisplayNameFor(model => model.ProfilePicture)
+            </th>
+            <th style="width:500px">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.ProfilePicture)
+            </td>
+            <td style="width:500px">
+                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
+                <a class="btn btn-info" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
